@@ -1,7 +1,10 @@
+import 'package:books_app/constants.dart';
 import 'package:books_app/core/utils/assets.dart';
 import 'package:books_app/core/utils/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'best_seller_listview_item.dart';
 import 'custom_appbar.dart';
 import 'custom_featured_listview.dart';
 
@@ -11,46 +14,30 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          CustomAppBar(),
-          CustomFeaturedListView(),
-          SizedBox(
+        children: [
+          const CustomAppBar(),
+          const CustomFeaturedListView(),
+          const SizedBox(
             height: 50,
           ),
-          Text(
+          const Text(
             "Best Seller",
             style: Styles.textStyle18,
           ),
-          BestSellerListViewItem(),
-        ],
-      ),
-    );
-  }
-}
-
-class BestSellerListViewItem extends StatelessWidget {
-  const BestSellerListViewItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 130,
-      child: Row(
-        children: [
-          AspectRatio(
-            aspectRatio: 2.5 / 4,
-            child: Container(
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(AssetsData.book1), fit: BoxFit.fill)),
-            ),
+          const SizedBox(
+            height: 20,
           ),
-          Column(
-            children: [],
-          )
+          Expanded(
+              child: ListView.builder(
+            itemCount: 10,
+            itemBuilder: (context, index) => const Padding(
+              padding: EdgeInsets.symmetric(vertical: 20),
+              child: BestSellerListViewItem(),
+            ),
+          ))
         ],
       ),
     );
