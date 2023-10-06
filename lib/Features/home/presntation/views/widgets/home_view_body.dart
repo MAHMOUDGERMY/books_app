@@ -3,7 +3,7 @@ import 'package:books_app/core/utils/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'custom_appbar.dart';
-import 'custom_featured_listview.dart';
+import 'custom_featured_listView_bloc_builder.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class HomeViewBody extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 30),
                 child: CustomAppBar(),
               ),
-              CustomFeaturedListView(),
+              CustomFeaturedlistViewBuilder(),
               SizedBox(
                 height: 50,
               ),

@@ -1,4 +1,4 @@
-part of 'newest_cubit.dart';
+part of 'newest_books_cubit.dart';
 
 abstract class NewestBookState {}
 

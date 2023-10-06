@@ -1,6 +1,6 @@
-import 'package:bloc/bloc.dart';
 import 'package:books_app/Features/home/domain/entities/book_entity.dart';
 import 'package:books_app/Features/home/domain/use_cases/fetch_featured_books_use_case.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'feautred_book_state.dart';
 
