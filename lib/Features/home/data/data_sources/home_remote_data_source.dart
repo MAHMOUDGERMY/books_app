@@ -1,7 +1,6 @@
 import 'package:books_app/Features/home/data/models/book_model/book_model.dart';
 import 'package:books_app/constants.dart';
 import 'package:books_app/core/utils/api_service.dart';
-import 'package:hive/hive.dart';
 
 import '../../../../core/functions/save_data.dart';
 import '../../domain/entities/book_entity.dart';
