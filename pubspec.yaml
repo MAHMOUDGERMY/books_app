@@ -39,6 +39,7 @@ dependencies:
   go_router: ^11.1.2
   google_fonts: ^6.1.0
   dartz: ^0.10.1
+  dio: ^5.3.3
 
 dev_dependencies:
   flutter_test:
