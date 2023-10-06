@@ -1,6 +1,9 @@
 import 'package:books_app/Features/home/data/models/book_model/book_model.dart';
+import 'package:books_app/constants.dart';
 import 'package:books_app/core/utils/api_service.dart';
+import 'package:hive/hive.dart';
 
+import '../../../../core/functions/save_data.dart';
 import '../../domain/entities/book_entity.dart';
 
 abstract class HomeRemoteDataSource {
@@ -17,7 +20,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     var data = await apiService.get(
         endpint: "volumes?Filtering=free-ebooks&q=programming");
     List<BookEntity> books = getBooksList(data);
-
+    saveData(books, KFeaturedBox);
     return books;
   }
 
@@ -26,6 +29,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     var data = await apiService.get(
         endpint: "volumes?Filtering=free-ebooks&Sorting=newest&q=programming");
     List<BookEntity> books = getBooksList(data);
+    saveData(books, KNewestBox);
 
     return books;
   }
