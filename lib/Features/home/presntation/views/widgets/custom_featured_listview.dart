@@ -16,18 +16,24 @@ class CustomFeaturedListView extends StatefulWidget {
 
 class _CustomFeaturedListViewState extends State<CustomFeaturedListView> {
   final ScrollController _scrollController = ScrollController();
+
   int nextPage = 1;
+  bool isLoading = false;
   @override
   void initState() {
     _scrollController.addListener(addListener);
     super.initState();
   }
 
-  void addListener() {
+  void addListener() async {
     if (_scrollController.position.pixels >=
         0.7 * _scrollController.position.maxScrollExtent) {
-      BlocProvider.of<FeautredBookCubit>(context)
-          .fetchFeautredBooks(pageNumber: nextPage++);
+      if (!isLoading) {
+        isLoading = true;
+        await BlocProvider.of<FeautredBookCubit>(context)
+            .fetchFeautredBooks(pageNumber: nextPage++);
+        isLoading = false;
+      }
     }
   }
 

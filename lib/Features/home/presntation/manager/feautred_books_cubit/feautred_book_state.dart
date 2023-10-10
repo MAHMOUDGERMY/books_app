@@ -6,6 +6,14 @@ class FeautredBookInitial extends FeautredBookState {}
 
 class FeautredBookLoading extends FeautredBookState {}
 
+class FeautredBookPaginationLoading extends FeautredBookState {}
+
+class FeautredBookPaginationFailure extends FeautredBookState {
+  final String failure_message;
+
+  FeautredBookPaginationFailure(this.failure_message);
+}
+
 class FeautredBookSuccess extends FeautredBookState {
   final List<BookEntity> books;
 
